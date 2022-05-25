@@ -1,0 +1,24 @@
+.shape{
+    clip-path: polygon(0% 100%, 5% 98%, 12% 96%, 21% 94%, 27% 90%, 34% 86%, 44% 78%, 44% 78%, 48% 65%, 51% 76%, 56% 81%, 61% 86%, 66% 90%, 73% 94%, 81% 97%, 89% 98%, 100% 100%);
+    background: #fcd1c0;
+    width: 36px;
+    height: 50px;
+}
+
+.firstLineShapes{
+    position: absolute;
+    top: 150px;
+    left: -186px;
+    min-width: 300px;
+    display: flex;
+    transform: rotate(270deg);
+}
+
+.secondLineShapes{
+    position: absolute;
+    top: 150px;
+    right: -186px;
+    min-width: 300px;
+    display: flex;
+    transform: rotate(90deg);
+}

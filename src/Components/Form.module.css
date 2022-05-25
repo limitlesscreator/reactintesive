@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+h1{
+    text-align: center;
+    color: ghostwhite;
+    margin-top: 50px;
+}
+
+body{
+    background-color: #3f0d12;
+    background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.classic{
+    display: inline-block;
+    width: 166px;
+    background: none;
+    border: none;
+    border-bottom: solid 1px black;
+}
+
+textarea{
+    resize: none;
+    padding: 5px;
+    border: none;
+    line-height: 4ch;
+    background: none;
+    background-image: linear-gradient(transparent, transparent calc(4ch - 1px), #414147 0px);
+    background-size: 100% 4ch;
+}
+
+
+form{
+    border-radius: 15px;
+    background: #fcd1c0;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 850px;
+    margin: 100px auto 0;
+    flex-wrap: wrap;
+    height: 280px;
+    position: relative;
+}
+.positionR{
+    position: relative;
+}
+
+.positionR label{
+    position: absolute;
+    top: -23px;
+    left: 0;
+    text-align-last: justify;
+    width: 170px;
+}
+
+.positionR2{
+    position: relative;
+}
+
+.positionR2 label{
+    position: absolute;
+    top: -17px;
+    left: 0;
+    width: 170px;
+    white-space: nowrap;
+}
+
+
+.picture1{
+    position: absolute;
+    bottom: 5px;
+    width: 214px;
+    right: 20px;
+    opacity: .8;
+}
+
+.wrap{
+    margin-top: 53px;
+    border-radius: 15px;
+    background: #fcd1c0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 850px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+input{
+    font-size: 15px;
+    outline: none;
+    font-family: 'Bad Script', cursive;
+
+}
+textarea{
+    font-size: 15px;
+    width: 250px;
+    font-family: 'Bad Script', cursive;
+    outline: none;
+}
+
+label{
+    color: #4c4c4c;
+}
+
+.label1{
+    letter-spacing: 2.65em;
+}
+
+.label2{
+    letter-spacing: 0.55em;
+}
+
+.label3{
+    letter-spacing: -0.02em;
+}
+
+.stick1{
+    position: absolute;
+    top: 205px;
+    left: 204px;
+    width: 228px;
+    transform: rotate(270deg);
+    z-index: 2;
+}
+
+.stick2{
+    position: absolute;
+    top: 205px;
+    left: 502px;
+    width: 228px;
+    transform: rotate(270deg);
+    z-index: 2;
+}
