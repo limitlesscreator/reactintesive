@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/reactintesive/static/css/main.bdbb1b34.css",
+    "main.js": "/reactintesive/static/js/main.2a4d204a.js",
+    "static/media/strih.png": "/reactintesive/static/media/strih.f09ff9f8be6578b16dac.png",
+    "index.html": "/reactintesive/index.html",
+    "main.bdbb1b34.css.map": "/reactintesive/static/css/main.bdbb1b34.css.map",
+    "main.2a4d204a.js.map": "/reactintesive/static/js/main.2a4d204a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bdbb1b34.css",
+    "static/js/main.2a4d204a.js"
+  ]
+}
