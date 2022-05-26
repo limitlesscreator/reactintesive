@@ -1,0 +1,11 @@
+.positionR2{
+    position: relative;
+}
+
+.positionR2 label{
+    position: absolute;
+    top: -17px;
+    left: 0;
+    width: 170px;
+    white-space: nowrap;
+}

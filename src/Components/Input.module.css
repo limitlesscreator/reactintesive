@@ -1,0 +1,23 @@
+/*positionR*/
+
+/*classic*/
+
+.positionR{
+    position: relative;
+}
+
+.positionR label{
+    position: absolute;
+    top: -23px;
+    left: 0;
+    text-align-last: justify;
+    width: 170px;
+}
+
+.classic{
+    display: inline-block;
+    width: 166px;
+    background: none;
+    border: none;
+    border-bottom: solid 1px black;
+}
