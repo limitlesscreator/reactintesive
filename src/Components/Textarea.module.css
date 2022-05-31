@@ -9,3 +9,18 @@
     width: 170px;
     white-space: nowrap;
 }
+.errorNoLetters{
+    position: absolute;
+    bottom: -2px;
+    right: 67px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 11px;
+    color: red;
+}
+
+.maxSymbols{
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+}

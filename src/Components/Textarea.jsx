@@ -10,7 +10,20 @@ export class Textarea extends React.Component {
         return <>
                 <span className={s.positionR2}>
                     <label className={s.label1} htmlFor={this.props.id}>{this.props.text}</label>
-                    <textarea id={this.props.id} placeholder={this.props.placeholder} maxLength={this.props.maxLength} cols={this.props.cols} rows={this.props.rows}></textarea>
+                    <textarea
+                        onChange={(e) => {
+                            this.props.operation(e.currentTarget.value)
+                            this.props.countSymbols(e.currentTarget.value)
+                        }}
+                        id={this.props.id}
+                        placeholder={this.props.placeholder}
+                        cols={this.props.cols}
+                        rows={this.props.rows}
+                        value={this.props.value}
+                    >
+                    </textarea>
+                    {this.props.data.whichEmpty.includes(this.props.id) ? <div className={s.errorNoLetters}>Поле пустое. Заполните пожалуйста</div> : null}
+                    <div className={s.maxSymbols}>{this.props.counter}</div>
                 </span>
         </>
     }

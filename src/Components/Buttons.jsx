@@ -12,9 +12,9 @@ export class Buttons extends React.Component{
 
        switch (this.props.color) {
            case 'red':
-               return <button className={classButtonRed} type="button">{this.props.text}</button>
+               return <button onClick={() => this.props.operation()} className={classButtonRed} type="button">{this.props.text}</button>
            case 'green':
-               return <button className={classButtonGreen} type="button">{this.props.text}</button>
+               return <button onClick={() => this.props.operation()} className={classButtonGreen} type="button">{this.props.text}</button>
        }
    }
 }

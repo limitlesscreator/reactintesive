@@ -21,3 +21,23 @@
     border: none;
     border-bottom: solid 1px black;
 }
+
+.errorNoLetters{
+    position: absolute;
+    bottom: -16px;
+    right: -4px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 11px;
+    color: red;
+}
+
+.errorNoUpperCase{
+    position: absolute;
+    bottom: -24px;
+    right: 24px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 11px;
+    color: red;
+}

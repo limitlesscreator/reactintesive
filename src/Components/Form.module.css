@@ -29,6 +29,10 @@ textarea{
     background: none;
     background-image: linear-gradient(transparent, transparent calc(4ch - 1px), #414147 0px);
     background-size: 100% 4ch;
+    width: 310px;
+    outline: none;
+    font-size: 13px;
+    overflow: hidden;
 }
 
 
@@ -39,7 +43,7 @@ form{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 850px;
+    width: 1080px;
     margin: 100px auto 0;
     flex-wrap: wrap;
     height: 280px;
@@ -52,10 +56,11 @@ form{
 
 .picture1{
     position: absolute;
-    bottom: 5px;
+    bottom: 105px;
     width: 214px;
-    right: 20px;
+    right: -86px;
     opacity: .8;
+    transform: rotate(270deg);
 }
 
 .wrap{
@@ -65,7 +70,7 @@ form{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 850px;
+    width: 1080px;
     flex-wrap: wrap;
     position: relative;
 }
@@ -75,13 +80,6 @@ input{
     outline: none;
 
 }
-textarea{
-    width: 250px;
-    outline: none;
-    font-size: 13px;
-    overflow: hidden;
-}
-
 label{
     color: #4c4c4c;
 }
@@ -101,7 +99,7 @@ label{
 .stick1{
     position: absolute;
     top: 205px;
-    left: 204px;
+    left: 656px;
     width: 228px;
     transform: rotate(270deg);
     z-index: 2;
@@ -110,7 +108,7 @@ label{
 .stick2{
     position: absolute;
     top: 205px;
-    left: 502px;
+    left: 275px;
     width: 228px;
     transform: rotate(270deg);
     z-index: 2;
