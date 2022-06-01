@@ -17,6 +17,10 @@ class App extends React.Component {
             checkUpperCaseName: true,
             checkUpperCaseSurName: true,
             countSymbolsAbout: 600,
+            countSymbolsStackTech: 600,
+            countSymbolsDescriptionProject: 600,
+            whichCountError: [],
+            modal: false,
         }
         this.updateName = this.updateName.bind(this)
         this.updateSurName = this.updateSurName.bind(this)
@@ -28,12 +32,53 @@ class App extends React.Component {
         this.updateLastProject = this.updateLastProject.bind(this)
         this.saveAllData = this.saveAllData.bind(this)
         this.countSymbols = this.countSymbols.bind(this)
+        this.clearAllData = this.clearAllData.bind(this)
+        this.closeModal = this.closeModal.bind(this)
 
     }
 
-    countSymbols(value){
+    clearAllData(){
+        // console.log(this.state.date)
         this.setState((state, props) => ({
-            countSymbolsAbout: 600 - value.length
+            name: '',
+            surName: '',
+            date: '',
+            phone: '',
+            web: '',
+            about: '',
+            stackTech: '',
+            descriptionProject: '',
+            whichEmpty: [],
+            checkUpperCaseName: true,
+            checkUpperCaseSurName: true,
+            countSymbolsAbout: 600,
+            countSymbolsStackTech: 600,
+            countSymbolsDescriptionProject: 600,
+            whichCountError: []
+        }))
+    }
+
+    countSymbols(value,whichPlace){
+        if(whichPlace === 'about'){
+            this.setState((state, props) => ({
+                countSymbolsAbout: 600 - value.length
+            }))
+        }
+        else if (whichPlace === 'stackTech'){
+            this.setState((state, props) => ({
+                countSymbolsStackTech: 600 - value.length
+            }))
+        }
+        else if (whichPlace === 'descriptionProject'){
+            this.setState((state, props) => ({
+                countSymbolsDescriptionProject: 600 - value.length
+            }))
+        }
+    }
+
+    closeModal(){
+        this.setState((state, props) => ({
+            modal: false
         }))
     }
 
@@ -56,6 +101,10 @@ class App extends React.Component {
         this.setState((state, props) => ({
             whichEmpty: [...this.state.whichEmpty, ...whichIsEmptyTemp]
         }))
+        this.setState((state, props) => ({
+            modal: true
+        }))
+
 
         console.log(this.state.whichEmpty)
     }
@@ -133,6 +182,7 @@ class App extends React.Component {
     render() {
         return <>
             <Form
+                clearAllData={this.clearAllData}
                 countSymbols={this.countSymbols}
                 updateName={this.updateName}
                 updateSurName={this.updateSurName}
@@ -143,7 +193,9 @@ class App extends React.Component {
                 updateStackTech={this.updateStackTech}
                 updateLastProject={this.updateLastProject}
                 saveAllData={this.saveAllData}
-                data={this.state}/>
+                closeModal={this.closeModal}
+                data={this.state}
+            />
         </>
     }
 }

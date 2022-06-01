@@ -24,3 +24,10 @@
     bottom: -5px;
     right: 0;
 }
+
+.countError{
+    position: absolute;
+    bottom: -10px;
+    right: 40px;
+    color: red;
+}

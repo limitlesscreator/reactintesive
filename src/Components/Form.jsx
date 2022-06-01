@@ -6,6 +6,7 @@ import {Shape} from "./Shape";
 import {Input} from "./Input";
 import {Textarea} from "./Textarea";
 import {Buttons} from "./Buttons";
+import {Modal} from "./Modal";
 
 export class Form extends React.Component {
     constructor(props) {
@@ -24,8 +25,8 @@ export class Form extends React.Component {
     render() {
         return <>
             <h1>Создание анкеты</h1>
-            {console.log(this.props.data)}
 
+            <Modal data={this.props.data} closeModal={this.props.closeModal} modal={this.props.data.modal}/>
             <form>
                 <Shape side={'left'}/>
                 <Shape side={'right'}/>
@@ -41,11 +42,11 @@ export class Form extends React.Component {
 
                 <div className={s.wrap}>
                     <Textarea countSymbols={this.props.countSymbols}  counter={this.props.data.countSymbolsAbout} data={this.props.data} value={this.props.data.about} operation={this.props.updateAbout} id={'about'} text={'О СЕБЕ'} placeholder={'Я увелкаюсь/люблю...'}  cols={30} rows={7}/>
-                    <Textarea countSymbols={this.props.countSymbols}  counter={this.props.data.countSymbolsAbout} data={this.props.data} value={this.props.data.stackTech} operation={this.props.updateStackTech} id={'stackTech'} text={'СТЕК ТЕХНОЛОГИЙ'} placeholder={'React, Typescript, Redux...'}  cols={30} rows={7}/>
-                    <Textarea countSymbols={this.props.countSymbols}  counter={this.props.data.countSymbolsAbout} data={this.props.data} value={this.props.data.descriptionProject} operation={this.props.updateLastProject} id={'descriptionProject'} text={'ОПИСАНИЕ ПОСЛЕДНЕГО ПРОЕКТА'} placeholder={'Мой крайний проект был...'} cols={30} rows={7}/>
+                    <Textarea countSymbols={this.props.countSymbols}  counter={this.props.data.countSymbolsStackTech} data={this.props.data} value={this.props.data.stackTech} operation={this.props.updateStackTech} id={'stackTech'} text={'СТЕК ТЕХНОЛОГИЙ'} placeholder={'React, Typescript, Redux...'}  cols={30} rows={7}/>
+                    <Textarea countSymbols={this.props.countSymbols}  counter={this.props.data.countSymbolsDescriptionProject} data={this.props.data} value={this.props.data.descriptionProject} operation={this.props.updateLastProject} id={'descriptionProject'} text={'ОПИСАНИЕ ПОСЛЕДНЕГО ПРОЕКТА'} placeholder={'Мой крайний проект был...'} cols={30} rows={7}/>
                 </div>
 
-                <Buttons operation={''} color={'red'} text={'Отменить'}/>
+                <Buttons operation={this.props.clearAllData} color={'red'} text={'Отменить'}/>
                 <Buttons operation={this.props.saveAllData} color={'green'} text={'Сохранить'}/>
 
                 <img className={s.picture1} src={shtrih} alt="astone.dev"/>
@@ -53,6 +54,3 @@ export class Form extends React.Component {
         </>
     }
 }
-
-// пофиксить символы
-// добавить кнопки Отменить Сохранить
