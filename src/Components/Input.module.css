@@ -1,7 +1,3 @@
-/*positionR*/
-
-/*classic*/
-
 .positionR{
     position: relative;
 }
@@ -36,6 +32,16 @@
     position: absolute;
     bottom: -24px;
     right: 24px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 11px;
+    color: red;
+}
+
+.webError{
+    position: absolute;
+    bottom: -14px;
+    right: 30px;
     text-align: center;
     white-space: nowrap;
     font-size: 11px;

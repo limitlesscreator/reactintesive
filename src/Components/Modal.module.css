@@ -10,11 +10,13 @@
     justify-content: center;
     flex-direction: column;
     z-index: 100;
+    color: white;
 }
 
 .modalContent{
+    border-radius: 25px;
     width: 500px;
-    background: ghostwhite;
+    background: rgba(248, 248, 255, 0.42);
 }
 
 .modalHeader{
@@ -34,5 +36,10 @@
 .modalBody{
     padding: 10px;
     border-top: 1px solid ghostwhite;
-    border-bottom: 1px solid ghostwhite;
+}
+.modalBody div{
+    margin-bottom: 10px;
+}
+.sizeWidth{
+    width: 500px;
 }

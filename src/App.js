@@ -1,5 +1,6 @@
 import React from 'react';
 import {Form} from "./Components/Form";
+import {Modal} from "./Components/Modal";
 
 class App extends React.Component {
     constructor() {
@@ -21,6 +22,9 @@ class App extends React.Component {
             countSymbolsDescriptionProject: 600,
             whichCountError: [],
             modal: false,
+            form: true,
+            webError: false,
+            numberError: false,
         }
         this.updateName = this.updateName.bind(this)
         this.updateSurName = this.updateSurName.bind(this)
@@ -34,11 +38,12 @@ class App extends React.Component {
         this.countSymbols = this.countSymbols.bind(this)
         this.clearAllData = this.clearAllData.bind(this)
         this.closeModal = this.closeModal.bind(this)
+        this.deleteWhichEmpty = this.deleteWhichEmpty.bind(this)
+        this.webValidation = this.webValidation.bind(this)
 
     }
 
     clearAllData(){
-        // console.log(this.state.date)
         this.setState((state, props) => ({
             name: '',
             surName: '',
@@ -54,8 +59,11 @@ class App extends React.Component {
             countSymbolsAbout: 600,
             countSymbolsStackTech: 600,
             countSymbolsDescriptionProject: 600,
-            whichCountError: []
+            whichCountError: [],
+            webError: false,
+            numberError: false,
         }))
+        setTimeout(() => {console.log(this.state)},1000)
     }
 
     countSymbols(value,whichPlace){
@@ -80,7 +88,27 @@ class App extends React.Component {
         this.setState((state, props) => ({
             modal: false
         }))
+        this.setState((state, props) => ({
+            form: true
+        }))
     }
+
+    webValidation(value){
+        let reg = /https:\/\//
+        console.log(this.state.webError)
+        if (!reg.test(value)){
+            this.setState((state, props) => ({
+                webError: true
+            }))
+        }
+        else {
+            this.setState((state, props) => ({
+                webError: false
+            }))
+        }
+    }
+
+
 
     saveAllData(){
         let whichIsEmptyTemp = [] // this is which is 0 str
@@ -97,17 +125,29 @@ class App extends React.Component {
                 }
             }
         }
-        console.log(whichIsEmptyTemp)
+
         this.setState((state, props) => ({
             whichEmpty: [...this.state.whichEmpty, ...whichIsEmptyTemp]
         }))
-        this.setState((state, props) => ({
-            modal: true
-        }))
-
-
-        console.log(this.state.whichEmpty)
+        console.log(this.state.whichCountError.length)
+       if (whichIsEmptyTemp.length === 0 && this.state.checkUpperCaseName && this.state.checkUpperCaseSurName && !this.state.webError){ // if error - don't open modal
+           this.setState((state, props) => ({
+               modal: true
+           }))
+           this.setState((state, props) => ({
+               form: false
+           }))
+       }
     }
+
+    deleteWhichEmpty(valueWhereWeTypingId,lengthOfValue){
+        let tempFiltered = this.state.whichEmpty.filter(el => el !== valueWhereWeTypingId)
+        if (lengthOfValue.length > 0){
+            this.setState((state, props) => ({
+                whichEmpty: tempFiltered
+            }))
+        }
+    }   // delete part whichEmpty if we typing there
 
     updateName(newName) {
         this.setState((state, props) => ({
@@ -151,9 +191,34 @@ class App extends React.Component {
     }
 
     updatePhone(newPhone) {
-        this.setState((state, props) => ({
-            phone: newPhone
-        }))
+        console.log(newPhone)
+        let str = newPhone.replace(/-/g, '')
+        let reg =  /^([^\s]{2})([^\s]{3})([^\s]{3})([^\s]{2})([^\s]{2})$/g;
+
+        if(!isNaN(+newPhone[newPhone.length - 1]) || newPhone[newPhone.length - 1] === '-'){
+            this.setState((state, props) => ({
+                numberError: false,
+                phone: newPhone
+            }))
+        }
+
+        let match = reg.exec(str)
+
+        if (match){
+            match.shift()
+            str = match.join('-')
+
+            this.setState((state, props) => ({
+                numberError: false,
+                phone: str
+            }))
+        }
+
+        else {
+            this.setState((state, props) => ({
+                numberError: true
+            }))
+        }
     }
 
     updateWeb(newWeb) {
@@ -181,7 +246,10 @@ class App extends React.Component {
 
     render() {
         return <>
+            <Modal data={this.state} closeModal={this.closeModal} modal={this.state.modal}/>
+
             <Form
+                form={this.state.form}
                 clearAllData={this.clearAllData}
                 countSymbols={this.countSymbols}
                 updateName={this.updateName}
@@ -194,6 +262,8 @@ class App extends React.Component {
                 updateLastProject={this.updateLastProject}
                 saveAllData={this.saveAllData}
                 closeModal={this.closeModal}
+                deleteWhichEmpty={this.deleteWhichEmpty}
+                webValidation={this.webValidation}
                 data={this.state}
             />
         </>

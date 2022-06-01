@@ -17,6 +17,7 @@ export class Textarea extends React.Component {
                                 countError = false
                                 this.props.operation(e.currentTarget.value)
                                 this.props.countSymbols(e.currentTarget.value,this.props.id)
+                                this.props.deleteWhichEmpty(this.props.id, e.currentTarget.value)
                             }
                             else {
                                 countError = true

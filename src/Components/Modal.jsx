@@ -1,5 +1,6 @@
 import React from 'react'
 import s from "./Modal.module.css";
+import f from "./Buttons.module.css";
 
 export class Modal extends React.Component {
     constructor(props) {
@@ -7,6 +8,8 @@ export class Modal extends React.Component {
     }
 
     render() {
+        const classButtonRed = f.glass + ' ' + f.button + ' ' + f.redA + ' ' + s.sizeWidth;
+
         if (!this.props.modal){
             return null
         }
@@ -27,7 +30,7 @@ export class Modal extends React.Component {
                     </div>
                 </div>
                 <div className={s.modalFooter}>
-                    <button onClick={() => this.props.closeModal()} className={s.button}>Close</button>
+                    <button type="button" className={classButtonRed} onClick={() => this.props.closeModal()} >Close</button>
                 </div>
             </div>
         </>
