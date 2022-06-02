@@ -63,7 +63,6 @@ class App extends React.Component {
             webError: false,
             numberError: false,
         }))
-        setTimeout(() => {console.log(this.state)},1000)
     }
 
     countSymbols(value,whichPlace){
