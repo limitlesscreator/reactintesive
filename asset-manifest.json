@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/reactintesive/static/css/main.b3b0319a.css",
-    "main.js": "/reactintesive/static/js/main.633e54d6.js",
+    "main.css": "/reactintesive/static/css/main.a04d82a6.css",
+    "main.js": "/reactintesive/static/js/main.bd553988.js",
     "static/media/strih.png": "/reactintesive/static/media/strih.f09ff9f8be6578b16dac.png",
     "index.html": "/reactintesive/index.html",
-    "main.b3b0319a.css.map": "/reactintesive/static/css/main.b3b0319a.css.map",
-    "main.633e54d6.js.map": "/reactintesive/static/js/main.633e54d6.js.map"
+    "main.a04d82a6.css.map": "/reactintesive/static/css/main.a04d82a6.css.map",
+    "main.bd553988.js.map": "/reactintesive/static/js/main.bd553988.js.map"
   },
   "entrypoints": [
-    "static/css/main.b3b0319a.css",
-    "static/js/main.633e54d6.js"
+    "static/css/main.a04d82a6.css",
+    "static/js/main.bd553988.js"
   ]
 }
