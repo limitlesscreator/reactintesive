@@ -1,6 +1,7 @@
 import React from 'react';
 import {Form} from "./Components/Form";
 import {Modal} from "./Components/Modal";
+import {ACTIONS} from "./FcComponents/reducer";
 
 class App extends React.Component {
     constructor() {
@@ -149,6 +150,19 @@ class App extends React.Component {
     }   // delete part whichEmpty if we typing there
 
     updateName(newName) {
+        let onlyStr = /[A-zА-яЁё]+/g
+
+        if (newName === ''){
+            this.setState((state, props) => ({
+                name: '',
+                checkUpperCaseName: true
+            }))
+        }
+
+        if(!onlyStr.test(newName)){
+            return
+        }
+
         this.setState((state, props) => ({
             name: newName
         }))
@@ -165,6 +179,19 @@ class App extends React.Component {
         }
     }
     updateSurName(newSurName) {
+        let onlyStr = /[A-zА-яЁё]+/g
+
+        if (newSurName === ''){
+            this.setState((state, props) => ({
+                surName: '',
+                checkUpperCaseSurName: true
+            }))
+        }
+
+        if(!onlyStr.test(newSurName)){
+            return
+        }
+
         this.setState((state, props) => ({
             surName: newSurName
         }))
@@ -181,8 +208,6 @@ class App extends React.Component {
         }
     }
 
-
-
     updateDate(newDate) {
         this.setState((state, props) => ({
             date: newDate
@@ -190,7 +215,9 @@ class App extends React.Component {
     }
 
     updatePhone(newPhone) {
-        console.log(newPhone)
+        this.setState((state, props) => ({
+            phone: newPhone
+        }))
         let str = newPhone.replace(/-/g, '')
         let reg =  /^([^\s]{2})([^\s]{3})([^\s]{3})([^\s]{2})([^\s]{2})$/g;
 
@@ -204,13 +231,20 @@ class App extends React.Component {
         let match = reg.exec(str)
 
         if (match){
-            match.shift()
-            str = match.join('-')
+            if (!isNaN(match[0])){
+                match.shift()
+                str = match.join('-')
 
-            this.setState((state, props) => ({
-                numberError: false,
-                phone: str
-            }))
+                this.setState((state, props) => ({
+                    numberError: false,
+                    phone: str
+                }))
+            }
+            else {
+                this.setState((state, props) => ({
+                    numberError: true,
+                }))
+            }
         }
 
         else {

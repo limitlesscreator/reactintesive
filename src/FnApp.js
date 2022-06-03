@@ -1,7 +1,7 @@
 import React, {useReducer} from 'react';
 import {ACTIONS, reducer} from "./FcComponents/reducer";
 import {Form} from "./FcComponents/Form";
-import {Modal} from "./Components/Modal";
+import {Modal} from "./FcComponents/Modal";
 
 export const FnApp = () => {
     const [state, dispatch] = useReducer(reducer, {
@@ -27,6 +27,17 @@ export const FnApp = () => {
     })
 
     function updateFullName(value,kind){
+        let onlyStr = /[A-zА-яЁё]+/g
+
+        if (value === ''){
+            kind === 'name' ? dispatch({type: ACTIONS.NAMEUPDATE, payload: ''}) :  dispatch({type: ACTIONS.SURNAMEUPDATE, payload: ''})
+        }
+
+        if(!onlyStr.test(value)){
+            return
+        }
+
+
         kind === 'name' ? dispatch({type: ACTIONS.NAMEUPDATE, payload: value}) :  dispatch({type: ACTIONS.SURNAMEUPDATE, payload: value})
         if (!(value[0] === value[0]?.toUpperCase() && value[0] !== ' ')){ // check UpperCase/ show error if no UpperCase first Letter
             kind === 'name' ? dispatch({type: ACTIONS.NAMEUPPERCASE, payload: false}) : dispatch({type: ACTIONS.SURNAMEUPPERCASE, payload: false})
@@ -46,7 +57,7 @@ export const FnApp = () => {
         let str = phone.replace(/-/g, '')
         let reg =  /^([^\s]{2})([^\s]{3})([^\s]{3})([^\s]{2})([^\s]{2})$/g;
 
-        if(!isNaN(+phone[phone.length - 1]) || phone[phone.length - 1] === '-' && phone.length === 1){
+        if(!isNaN(+phone[phone.length - 1]) || phone[phone.length - 1] === '-'){
             dispatch({type: ACTIONS.PHONEUPDATE, payload: phone})
             dispatch({type: ACTIONS.NUMBERERROR, payload: false})
         }
@@ -136,7 +147,6 @@ export const FnApp = () => {
     }
 
     function deleteWhichEmpty(valueWhereWeTypingId,lengthOfValue){
-        console.log('boom')
         let tempFiltered = state.whichEmpty.filter(el => el !== valueWhereWeTypingId)
         if (lengthOfValue.length > 0){
             dispatch({type: ACTIONS.WHICHEMPTY, payload: tempFiltered})

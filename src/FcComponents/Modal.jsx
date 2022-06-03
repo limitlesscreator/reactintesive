@@ -1,6 +1,6 @@
 import React from 'react'
-import s from "./Modal.module.css";
-import f from "./Buttons.module.css";
+import s from "../Components/Modal.module.css";
+import f from "../Components/Buttons.module.css";
 
 export const Modal = (props) => {
         const classButtonRed = f.glass + ' ' + f.button + ' ' + f.redA + ' ' + s.sizeWidth;

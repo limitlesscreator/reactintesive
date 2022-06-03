@@ -39,8 +39,8 @@ export class Form extends React.Component {
                 <Input deleteWhichEmpty={this.props.deleteWhichEmpty} data={this.props.data} value={this.props.data.name} operation={this.props.updateName} id={'name'} text={'И М Я'} placeholder={'Владислав'} type={'text'}/>
                 <Input deleteWhichEmpty={this.props.deleteWhichEmpty} data={this.props.data} value={this.props.data.surName} operation={this.props.updateSurName} id={'surName'} text={'Ф А М И Л И Я'} placeholder={'Владимирович'} type={'text'}/>
                 <Input deleteWhichEmpty={this.props.deleteWhichEmpty} data={this.props.data} value={this.props.data.date} operation={this.props.updateDate}  id={'date'} text={'Д А Т А'} placeholder={'Дата'} type={'date'}/>
-                <Input deleteWhichEmpty={this.props.deleteWhichEmpty} data={this.props.data} value={this.props.data.phone} operation={this.props.updatePhone} id={'phone'} text={'Т E Л Е Ф О Н'} placeholder={'7(000)000-00-00'} type={'tel'}/>
-                <Input webValidation={this.props.webValidation} deleteWhichEmpty={this.props.deleteWhichEmpty} data={this.props.data} value={this.props.data.web} operation={this.props.updateWeb}  id={'web'} text={'С А Й Т'} placeholder={'https://www.example.com'} type={'url'}/>
+                <Input deleteWhichEmpty={this.props.deleteWhichEmpty} data={this.props.data} value={this.props.data.phone} operation={this.props.updatePhone} id={'phone'} text={'Т E Л Е Ф О Н'} placeholder={'+7-000-000-00-00'} type={'tel'}/>
+                <Input webValidation={this.props.webValidation} deleteWhichEmpty={this.props.deleteWhichEmpty} data={this.props.data} value={this.props.data.web} operation={this.props.updateWeb}  id={'web'} text={'С А Й Т'} placeholder={'https://'} type={'url'}/>
 
                 <div className={s.wrap}>
                     <Textarea deleteWhichEmpty={this.props.deleteWhichEmpty} countSymbols={this.props.countSymbols}  counter={this.props.data.countSymbolsAbout} data={this.props.data} value={this.props.data.about} operation={this.props.updateAbout} id={'about'} text={'О СЕБЕ'} placeholder={'Я увелкаюсь/люблю...'}  cols={30} rows={7}/>

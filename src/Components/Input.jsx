@@ -24,7 +24,7 @@ export class Input extends React.Component {
                         />
                         {this.props.data.whichEmpty.includes(this.props.id) ? <div className={s.errorNoLetters}>Поле пустое. Заполните пожалуйста</div> : null}
                         {firstLetterIsUpperCase ? <div className={s.errorNoUpperCase}>Первый символ  должен <br/> начинатся с заглавной :)</div> : null}
-                        {(this.props.data.webError && this.props.id === 'web') || (this.props.data.numberError && this.props.id === 'phone')  ? <div className={s.webError}>Некоректный ввод)</div> : ''}
+                        {(this.props.data.webError && this.props.id === 'web') || (this.props.data.numberError && this.props.id === 'phone')  ? <div className={s.webError}>Некорректный ввод)</div> : ''}
                     </span>
         </>
     }
